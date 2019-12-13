@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
 
@@ -21,10 +22,20 @@ func generateGrid() [6][6]bool {
 	return a
 }
 
+func randomiseGrid() [6][6]bool {
+	grid := generateGrid()
+
+	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle( len(grid), func(i, j int) {
+		grid[i][j] = grid[j][i]
+	})
+	return grid
+}
+
 func main() {
 	print("\033[H\033[2J")
 
-	grid := generateGrid()
+	grid := randomiseGrid()
 
 	for {
 		for _, items := range grid {
