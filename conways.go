@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
 
@@ -14,6 +15,16 @@ func generateInitialGrid() [6][6]bool {
 		{false, false, true, true, false, false},
 		{false, false, true, true, false, false},
 	}
+}
+
+func randomiseGrid() [6][6]bool {
+	grid := generateInitialGrid()
+
+	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle( len(grid), func(i, j int) {
+		grid[i][j] = grid[j][i]
+	})
+	return grid
 }
 
 func printGrid(grid [6][6]bool) {
@@ -40,6 +51,6 @@ func clearScreen() {
 
 func main() {
 	clearScreen()
-	grid := generateInitialGrid()
+	grid := randomiseGrid()
 	printGrid(grid)
 }
