@@ -34,9 +34,9 @@ func printGrid(grid [6][6]bool) {
 		for _, row := range grid {
 			for _, item := range row {
 				if item {
-					fmt.Print(" X ")
+					fmt.Print(" ⬛ ")
 				} else {
-					fmt.Print(" 0 ")
+					fmt.Print(" ⬜ ")
 				}
 			}
 			fmt.Println()
