@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"time"
+
+	"stash.skybet.net/~sorsbyl/conways/utils"
 )
 
-func generateInitialGrid() [6][6]bool {
-	return [6][6]bool{
+func generateInitialGrid() [][]bool {
+	return [][]bool{
 		{false, false, true, true, false, false},
 		{false, false, true, true, false, false},
 		{false, false, true, true, false, false},
@@ -16,7 +18,7 @@ func generateInitialGrid() [6][6]bool {
 	}
 }
 
-func printGrid(grid [6][6]bool) {
+func printGrid(grid [][]bool) {
 	for {
 		for _, row := range grid {
 			for _, item := range row {
@@ -31,6 +33,7 @@ func printGrid(grid [6][6]bool) {
 
 		time.Sleep(1 * time.Second)
 		clearScreen()
+		grid = utils.Evaluate(grid)
 	}
 }
 
