@@ -9,12 +9,12 @@ import (
 
 func generateInitialGrid() [][]bool {
 	return [][]bool{
-		{false, false, true, true, false, false},
-		{false, false, true, true, false, false},
-		{false, false, true, true, false, false},
-		{false, false, true, true, false, false},
-		{false, false, true, true, false, false},
-		{false, false, true, true, false, false},
+		{false, false, false, false, false, false},
+		{false, false, false, false, false, false},
+		{false, false, true, true, true, false},
+		{false, true, true, true, false, false},
+		{false, false, false, false, false, false},
+		{false, false, false, false, false, false},
 	}
 }
 
@@ -23,9 +23,9 @@ func printGrid(grid [][]bool) {
 		for _, row := range grid {
 			for _, item := range row {
 				if item {
-					fmt.Print(" X ")
+					fmt.Print(" ⬛ ")
 				} else {
-					fmt.Print(" 0 ")
+					fmt.Print(" ⬜ ")
 				}
 			}
 			fmt.Println()

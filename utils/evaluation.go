@@ -9,7 +9,7 @@ func Evaluate(dataSet [][]bool) [][]bool {
 
 		for index, state := range b {
 			firstLength := len(dataSet)
-			secondLength := len(dataSet)
+			secondLength := len(dataSet[0])
 			aliveCount = checkState(dataSet, dataIndex-1, index-1, firstLength, secondLength, aliveCount)
 			aliveCount = checkState(dataSet, dataIndex-1, index, firstLength, secondLength, aliveCount)
 			aliveCount = checkState(dataSet, dataIndex-1, index+1, firstLength, secondLength, aliveCount)
@@ -25,16 +25,16 @@ func Evaluate(dataSet [][]bool) [][]bool {
 				} else {
 					set = append(set, true)
 				}
-
-				continue
-			}
-
-			if aliveCount == 3 {
-				set = append(set, true)
 			} else {
-				set = append(set, false)
+				if aliveCount == 3 {
+					set = append(set, true)
+				} else {
+					set = append(set, false)
+				}
 			}
 		}
+
+		aliveCount = 0
 
 		dataset = append(dataset, set)
 	}
