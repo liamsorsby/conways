@@ -5,6 +5,15 @@ import (
 	"testing"
 )
 
+var rec = [][]bool{
+	{false, false, false, false, false, false},
+	{false, false, true, false, false, false},
+	{false, false, false, false, false, false},
+	{false, true, false, false, false, false},
+	{false, true, false, false, false, false},
+	{false, false, false, false, false, false},
+}
+
 func TestEvaluate(t *testing.T) {
 	tests := []struct {
 		name    string
