@@ -34,7 +34,6 @@ func randomiseGrid() [6][6]bool {
 
 func main() {
 	print("\033[H\033[2J")
-
 	grid := randomiseGrid()
 
 	for {
