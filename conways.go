@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+
+	"stash.skybet.net/~sorsbyl/conways/utils"
 )
 
 func generateInitialGrid() [6][6]bool {
@@ -21,7 +23,7 @@ func randomiseGrid() [6][6]bool {
 	grid := generateInitialGrid()
 
 	rand.Seed(time.Now().UnixNano())
-	rand.Shuffle( len(grid), func(i, j int) {
+	rand.Shuffle(len(grid), func(i, j int) {
 		grid[i][j] = grid[j][i]
 	})
 	return grid
@@ -42,6 +44,7 @@ func printGrid(grid [6][6]bool) {
 
 		time.Sleep(1 * time.Second)
 		clearScreen()
+		grid = utils.Evaluate(grid)
 	}
 }
 
