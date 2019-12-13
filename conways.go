@@ -18,7 +18,7 @@ func generateInitialGrid() [6][6]bool {
 }
 
 func randomiseGrid() [6][6]bool {
-	grid := generateGrid()
+	grid := generateInitialGrid()
 
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle( len(grid), func(i, j int) {
